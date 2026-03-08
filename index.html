@@ -1,23 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <title>Feliz Día de la Mujer</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9ecb,#ffe6f2);
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+z-index:2;
+}
+
+h1{
+color:#d81b60;
+font-size:40px;
+}
+
+h2{
+color:#333;
+font-size:30px;
+}
+
+.flower{
+position:absolute;
+top:-50px;
+font-size:30px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px);
+}
+100%{
+transform:translateY(110vh);
+}
+}
+
+</style>
 </head>
 
-<body style="text-align:center;font-family:Arial;background:#ffe6f0;">
+<body>
+
+<div class="card">
 
 <h1>🌸 Feliz Día de la Mujer 🌸</h1>
 
 <h2 id="nombre">Para ti</h2>
 
+<p>Hoy celebramos tu fuerza, tu alegría y lo especial que eres.</p>
+
+</div>
+
 <script>
+
 const params = new URLSearchParams(window.location.search);
 const nombre = params.get("nombre");
 
 if(nombre){
-document.getElementById("nombre").innerText = "Para " + nombre;
+document.getElementById("nombre").innerText="Para "+nombre;
 }
+
+function crearFlor(){
+
+const flor=document.createElement("div");
+
+flor.classList.add("flower");
+
+flor.innerHTML="🌼";
+
+flor.style.left=Math.random()*100+"vw";
+
+flor.style.animationDuration=(Math.random()*3+4)+"s";
+
+document.body.appendChild(flor);
+
+setTimeout(()=>{
+flor.remove();
+},7000)
+
+}
+
+setInterval(crearFlor,300);
+
 </script>
 
 </body>
