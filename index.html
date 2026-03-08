@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Feliz Día de la Mujer</title>
+</head>
+
+<body style="text-align:center;font-family:Arial;background:#ffe6f0;">
+
+<h1>🌸 Feliz Día de la Mujer 🌸</h1>
+
+<h2 id="nombre">Para ti</h2>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const nombre = params.get("nombre");
+
+if(nombre){
+document.getElementById("nombre").innerText = "Para " + nombre;
+}
+</script>
+
+</body>
+</html>
